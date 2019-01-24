@@ -13,6 +13,7 @@ const styles = {
     card: {
         margin: '0 auto',
         marginTop: '15px',
+        height: '280px'
     },
     media: {
         objectFit: 'cover',
@@ -21,24 +22,24 @@ const styles = {
 
 class MovieCard extends React.Component {
     render() {
-        const { classes, theme, movie } = this.props;
+        const { classes, movie } = this.props;
         return (
             <Card className={classes.card}>
                 <CardActionArea>
                     <CardMedia
                         component="img"
-                        alt="Contemplative Reptile"
+                        alt="Movie Poster"
                         className={classes.media}
                         height="140"
                         image={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                        title="Contemplative Reptile"
+                        title="Movie Poster"
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
                             {movie.title}
                         </Typography>
                         <Typography component="p">
-                            {movie.overview}
+                            {movie.overview.split('').splice(0,300).join('')}
                         </Typography>
                     </CardContent>
                 </CardActionArea>
