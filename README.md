@@ -1,4 +1,4 @@
-# # Ultimate Moviegoers Guide
+# Ultimate Moviegoers Guide
 <br>
 A React web app that pulls from _The Movie Database API_.
 <br>
