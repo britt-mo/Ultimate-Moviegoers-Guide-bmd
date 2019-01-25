@@ -70,14 +70,38 @@ const styles = theme => ({
 });
 
 class Header extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            query: null
+        }
+    }
+
+    handleSearch = (e) => {
+        this.setState({
+            query: e.target.value
+        })
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.query !== this.state.query && this.state.query) {
+            this.props.searchMovies({ query: this.state.query })
+        }
+
+        if(prevState.query && !this.state.query){
+            this.props.getMovies()
+        }
+    }
+
     render() {
         const { classes } = this.props;
+        let { query } = this.state
         return (
             <div className={classes.root}>
                 <AppBar position="static">
                     <Toolbar>
-                        <Typography className={classes.title} variant="h4" color="inherit" noWrap>
-                            Ultimate Moviegoers Guide
+                        <Typography className={classes.title} variant="h6" color="inherit" noWrap>
+                            Movie App
                         </Typography>
                         <div className={classes.grow} />
                         <div className={classes.search}>
@@ -90,6 +114,8 @@ class Header extends React.Component {
                                     root: classes.inputRoot,
                                     input: classes.inputInput,
                                 }}
+                                value={query}
+                                onChange={(e) => this.handleSearch(e)}
                             />
                         </div>
                     </Toolbar>

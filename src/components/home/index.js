@@ -24,7 +24,10 @@ class Home extends Component {
         let { movies, getMoviesLoader } = this.props
         return (
             <div>
-                <Header />
+                <Header
+                    searchMovies={this.props.searchMovies}
+                    getMovies={this.props.getMovies}
+                />
                 <div className="container">
                     <Grid item md={12} >
                         <Button onClick={() => { this.props.getMovies(); this.setState({ feature: 'all' }) }} variant="contained" color={this.state.feature !== 'all' ? "primary" : "secondary"} style={{ margin: '10px 10px 0 0', minWidth: '100px' }}>
@@ -54,6 +57,10 @@ class Home extends Component {
                             getMoviesLoader ?
                                 <div style={{ width: '250px', margin: '0 auto' }}><img src={require('./../../assets/img/loader.gif')} alt="loading" /></div> : ''
                         }
+                        {
+                            !getMoviesLoader && movies && !movies.length?
+                                <div style={{ width: '250px', margin: '0 auto' }}><p>No Movie Found</p></div> : ''
+                        }
                     </div>
                 </div>
                 <br />
@@ -76,6 +83,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getMovies: () => dispatch(movieAction.getMovies()),
         getFeatureMovies: (payload) => dispatch(movieAction.getFeatureMovies(payload)), // payload = {feature}
+        searchMovies: (payload) => dispatch(movieAction.searchMovies(payload)), // payload = {query}
     };
 };
 
