@@ -7,9 +7,10 @@ import {
 
 export class movieAction {
 
-    static getMovies() {
+    static getMovies(payload) {
         return {
-            type: GET_MOVIES
+            type: GET_MOVIES,
+            payload
         }
     }
 
