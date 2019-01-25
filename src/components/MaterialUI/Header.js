@@ -8,6 +8,7 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 
+
 const styles = theme => ({
     root: {
         width: '100%',
@@ -100,8 +101,8 @@ class Header extends React.Component {
             <div className={classes.root}>
                 <AppBar position="static">
                     <Toolbar>
-                        <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-                            Movie App
+                        <Typography className={classes.title} variant="h4" color="inherit" noWrap>
+                            Ultimate Moviegoers Guide
                         </Typography>
                         <div className={classes.grow} />
                         <div className={classes.search}>
