@@ -8,7 +8,6 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 
-
 const styles = theme => ({
     root: {
         width: '100%',
@@ -89,8 +88,8 @@ class Header extends React.Component {
             this.props.searchMovies({ query: this.state.query })
         }
 
-        if(prevState.query && !this.state.query){
-            this.props.getMovies()
+        if (prevState.query && !this.state.query) {
+            this.props.getMovies({ page: 1 })
         }
     }
 
