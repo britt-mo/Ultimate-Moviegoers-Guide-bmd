@@ -13,44 +13,45 @@ const styles = {
     card: {
         margin: '0 auto',
         marginTop: '15px',
-        height: '280px'
+        height: '280px',
+        width: '97%'
     },
     media: {
         objectFit: 'cover',
     },
+    title: {
+        fontSize: '13px',
+        fontWeight: 'bold',
+        color: '#333'
+    },
+    desc: {
+        fontSize: '11px'
+    }
 };
 
 class MovieCard extends React.Component {
     render() {
-        const { classes, movie } = this.props;
+        const { classes, movie, showMovieDetail } = this.props;
         return (
-            <Card className={classes.card}>
+            <Card className={classes.card} onClick={() => showMovieDetail(movie)}>
                 <CardActionArea>
                     <CardMedia
                         component="img"
-                        alt="Movie Poster"
+                        alt="Movie Poster Image"
                         className={classes.media}
                         height="140"
                         image={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                        title="Movie Poster"
+                        title="Movie Poster Image"
                     />
                     <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
+                        <Typography className={classes.title} gutterBottom variant="h5" component="h2">
                             {movie.title}
                         </Typography>
-                        <Typography component="p">
-                            {movie.overview.split('').splice(0,300).join('')}
+                        <Typography className={classes.desc} component="p">
+                            {movie.overview.split('').splice(0, 250).join('')}...
                         </Typography>
                     </CardContent>
                 </CardActionArea>
-                <CardActions>
-                    <Button size="small" color="primary">
-                        Share
-                    </Button>
-                    <Button size="small" color="primary">
-                        Watch
-                    </Button>
-                </CardActions>
             </Card>
         )
     }
