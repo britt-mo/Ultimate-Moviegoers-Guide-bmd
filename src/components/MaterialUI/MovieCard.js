@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 const styles = {
@@ -37,11 +35,11 @@ class MovieCard extends React.Component {
                 <CardActionArea>
                     <CardMedia
                         component="img"
-                        alt="Movie Poster Image"
+                        alt="Contemplative Reptile"
                         className={classes.media}
                         height="140"
                         image={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                        title="Movie Poster Image"
+                        title="Contemplative Reptile"
                     />
                     <CardContent>
                         <Typography className={classes.title} gutterBottom variant="h5" component="h2">

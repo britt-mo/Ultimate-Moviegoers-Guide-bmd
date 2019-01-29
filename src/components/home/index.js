@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import MovieCard from './../MaterialUI/MovieCard'
 import Header from './../MaterialUI/Header'
 import Pagination from './../MaterialUI/Pagination'
-import FullScreenDialog from './../MaterialUI/FullScreenDialog'
+import MovieDialog from './../MaterialUI/MovieDialog'
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
@@ -65,7 +65,7 @@ class Home extends Component {
     }
 
     render() {
-        let { movies, getMoviesLoader, getMoviesError, classes } = this.props
+        let { movies, getMoviesLoader, getMoviesError } = this.props
         let { movieDetail, isShowDetail } = this.state
         return (
             <div>
@@ -89,7 +89,7 @@ class Home extends Component {
                             Highest Rated
                         </Button>
                     </Grid>
-                    <FullScreenDialog
+                    <MovieDialog
                         isShowDetail={isShowDetail}
                         movie={movieDetail}
                         handleDetailDialog={(status) => { this.setState({ isShowDetail: status }) }}
@@ -98,8 +98,8 @@ class Home extends Component {
                         {
                             !getMoviesLoader && movies && movies.length && movies.map((movie, i) => {
                                 return (
-                                    <Grid item md={4} sm={6}>
-                                        <MovieCard movie={movie} key={i} showMovieDetail={(movieDetail) => { this.setState({ isShowDetail: true, movieDetail }) }} />
+                                    <Grid item md={4} sm={6} key={i}>
+                                        <MovieCard movie={movie} showMovieDetail={(movieDetail) => { this.setState({ isShowDetail: true, movieDetail }) }} />
                                     </Grid>
                                 )
                             })

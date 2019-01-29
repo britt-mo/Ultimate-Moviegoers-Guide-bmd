@@ -1,5 +1,11 @@
-.container{
-    max-width: 1024px;
-    margin: 0 auto;
-    padding: 15px;
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.modal-img {
+  max-width: 300px;
+  max-height: 250px;
+  margin: 0 auto;
 }
