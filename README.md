@@ -23,7 +23,7 @@ This app:
 
 ```
 git clone git@github.com:britt-mo/Ultimate-Moviegoers-Guide-bmd.git
-cd Ultimate-Moviegoers-Guide
+cd Ultimate-Moviegoers-Guide-bmd
 npm install
 npm start
 ```
